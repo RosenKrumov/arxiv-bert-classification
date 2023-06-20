@@ -1,7 +1,9 @@
+from cgi import test
 import tensorflow as tf
 import pickle
 from sklearn.metrics import precision_score
 from sklearn.metrics import recall_score
+from arxiv_bert.data.preprocess import ArxivBertPreprocessor
 
 from arxiv_bert.model.predict import ArxivBertPredictor
 
@@ -11,9 +13,11 @@ with open(settings.BASE_DIR / "data" / "testset.pickle", "rb") as file:
     testset = pickle.load(file)
 
 X_test = testset["X_test"]
-y_test = testset["y_test"]
 
 predictor = ArxivBertPredictor()
+preprocessor = ArxivBertPreprocessor()
+
+y_test = preprocessor.encode_labels(test["y_test"])
 
 # Make predictions
 outputs = [predictor.predict(x) for x in X_test]

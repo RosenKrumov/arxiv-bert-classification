@@ -62,6 +62,9 @@ class ArxivBertPreprocessor:
             add_special_tokens=True,
         )
 
+    def encode_labels(self, labels):
+        return self.label_encoder.fit_transform(labels)
+
     def prepare_dataset(self, X, y):
         X_tokenized = self.tokenizer(
             X,
@@ -72,7 +75,9 @@ class ArxivBertPreprocessor:
             add_special_tokens=True,
         )
 
-        ds = tf.data.Dataset.from_tensor_slices((dict(X_tokenized), y)).batch(
+        y_encoded = self.label_encoder.fit_transform(y)
+        ds = tf.data.Dataset.from_tensor_slices((dict(X_tokenized), y_encoded)).batch(
             constants.BATCH_SIZE
         )
-        return ds, X_tokenized
+
+        return ds, X_tokenized, y_encoded
