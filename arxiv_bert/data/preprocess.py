@@ -9,7 +9,7 @@ import tensorflow as tf
 import re, string
 from tqdm import tqdm
 
-from helpers import constants
+from arxiv_bert.helpers import constants
 
 tqdm.pandas()
 

@@ -1,10 +1,10 @@
 import pickle
-from arxiv_bert.data.preprocess import ArxivBertPreprocessor
 from transformers import TFBertForSequenceClassification
 import tensorflow as tf
 
 from django_project import settings
-from helpers import constants
+from arxiv_bert.data.preprocess import ArxivBertPreprocessor
+from arxiv_bert.helpers import constants
 from .hyperparam_search import param_search
 
 with open(settings.BASE_DIR / "data" / "trainset.pickle", "rb") as file:

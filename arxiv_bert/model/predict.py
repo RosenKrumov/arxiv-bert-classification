@@ -1,9 +1,9 @@
-from arxiv_bert.data.preprocess import ArxivBertPreprocessor
-from django_project import settings
-from helpers import constants
-
 import tensorflow as tf
 from transformers import TFBertForSequenceClassification
+
+from arxiv_bert.data.preprocess import ArxivBertPreprocessor
+from arxiv_bert.helpers import constants
+from django_project import settings
 
 
 class ArxivBertPredictor:

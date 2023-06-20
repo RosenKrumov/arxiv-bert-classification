@@ -1,9 +1,10 @@
-from helpers import constants
 import tensorflow as tf
 import keras_tuner as kt
 from tensorflow import keras
 from transformers import TFBertForSequenceClassification
 import numpy as np
+
+from arxiv_bert.helpers import constants
 
 
 def model_builder(hp):
