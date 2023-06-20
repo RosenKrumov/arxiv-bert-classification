@@ -26,3 +26,5 @@ POST /api/prediction - to play with the model
 5) Export the `PYTHONPATH` variable with the following command - `EXPORT PYTHONPATH=<path_to_repo>/arxiv_bert`
 6) Run the following command to start the server - `python3 manage.py runserver`
 7) Browse @ localhost:8000/api/prediction and have fun!
+8) Input format is JSON with the following value
+   - {"text":"<your_text_here>"}
