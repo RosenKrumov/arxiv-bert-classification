@@ -15,6 +15,9 @@ Averaged F1 Score: 0.61
 GET /api/prediction - to go to the predictions page
 POST /api/prediction - to play with the model
 
+## Run tests
+`python3 manage.py test`
+
 ## Steps to start the server and run predictions:
 1) Download the model from this link - https://drive.google.com/file/d/11GUA5Exsu8fQ907ozY-JKTEoK5Tx6vod/view?usp=drive_link and store it in the `static` folder
 2) Unzip the downloaded model
