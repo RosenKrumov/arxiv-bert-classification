@@ -46,36 +46,43 @@ class ArxivBertPreprocessor:
         # remove single letters and numbers surrounded by space
         x = re.sub(r"\s[a-z]\s|\s[0-9]\s", " ", x)
 
+        # lemmatize words
         tokens = word_tokenize(x)
         lemmatized = [self.lemmatizer.lemmatize(word) for word in tokens]
         x = " ".join(lemmatized)
 
         return x
 
+    # Return tokenized text with BERT tokenizer
     def preprocess_text(self, text):
         return self.tokenizer(
             text,
-            return_tensors="np",
+            return_tensors="tf",
             max_length=constants.MAX_SEQ_LENGTH,
             padding="max_length",
             truncation=True,
             add_special_tokens=True,
         )
 
+    # Label encode the topic column
     def encode_labels(self, labels):
         return self.label_encoder.fit_transform(labels)
 
     def prepare_dataset(self, X, y):
+        # Tokenize the abstracts
         X_tokenized = self.tokenizer(
             X,
-            return_tensors="np",
+            return_tensors="tf",
             max_length=constants.MAX_SEQ_LENGTH,
             padding="max_length",
             truncation=True,
             add_special_tokens=True,
         )
 
-        y_encoded = self.label_encoder.fit_transform(y)
+        # Label encode the topic column
+        y_encoded = self.encode_labels(y)
+
+        # Create TF dataset from the preprocessed X and y
         ds = tf.data.Dataset.from_tensor_slices((dict(X_tokenized), y_encoded)).batch(
             constants.BATCH_SIZE
         )

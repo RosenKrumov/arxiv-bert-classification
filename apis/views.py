@@ -17,9 +17,14 @@ def index(request):
     return Response(resp)
 
 
-@api_view(["GET", "POST"])
+@api_view(["POST"])
 def categorize_abstract(request):
     abstract = request.data
-    prediction = arxiv_predictor.predict(abstract)
+    if "text" not in abstract:
+        return Response(
+            {"error": "Empty input"},
+            status=400,
+        )
 
+    prediction = arxiv_predictor.predict(abstract["text"])
     return Response({"prediction": prediction})

@@ -1,0 +1,8 @@
+django~=4.0.0
+djangorestframework~=3.13.0
+tensorflow
+transformers
+keras-tuner
+nltk
+scikit-learn
+pandas

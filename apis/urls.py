@@ -3,5 +3,5 @@ from apis import views
 
 urlpatterns = [
     path("", views.index),
-    path("prediction/", views.categorize_abstract),
+    path("prediction/", views.categorize_abstract, name="prediction"),
 ]
