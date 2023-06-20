@@ -1,6 +1,10 @@
 from rest_framework.decorators import api_view
 from rest_framework.response import Response
 
+from arxiv_bert.model.predict import ArxivBertPredictor
+
+arxiv_predictor = ArxivBertPredictor()
+
 
 @api_view(["GET"])
 def index(request):
@@ -16,6 +20,6 @@ def index(request):
 @api_view(["GET", "POST"])
 def categorize_abstract(request):
     abstract = request.data
-    # predict with model
+    prediction = arxiv_predictor.predict(abstract)
 
-    return Response()
+    return Response({"prediction": prediction})
