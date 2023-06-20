@@ -5,6 +5,11 @@ It also has a Django REST Framework app that runs a server and provides an API f
 I recommend going through the EDA analysis part first -> [https://github.com/RosenKrumov/arxiv-bert-classification/blob/main/arxiv_bert/analysis/eda-dataset-creation.ipynb]
 
 ## Pre-trained model scores:
+Accuracy: 0.79
+Validation accuracy: 0.77
+Averaged Macro Precision: 0.62
+Averaged Macro Recall: 0.60
+Averaged F1 Score: 0.61
 
 ## API reference:
 GET /api/prediction - to go to the predictions page
