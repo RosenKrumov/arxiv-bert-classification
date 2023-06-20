@@ -4,13 +4,13 @@ It also has a Django REST Framework app that runs a server and provides an API f
 
 I recommend going through the EDA analysis part first -> [https://github.com/RosenKrumov/arxiv-bert-classification/blob/main/arxiv_bert/analysis/eda-dataset-creation.ipynb]
 
-Pre-trained model scores:
+## Pre-trained model scores:
 
-API reference:
+## API reference:
 GET /api/prediction - to go to the predictions page
 POST /api/prediction - to play with the model
 
-Steps to start the server and run predictions:
+## Steps to start the server and run predictions:
 1) Download the model from this link - https://drive.google.com/file/d/11GUA5Exsu8fQ907ozY-JKTEoK5Tx6vod/view?usp=drive_link and store it in the `static` folder
 2) Unzip the downloaded model
 3) You can optionally create a virtual environment for cleaner package management - `python3 -m venv .venv` and then `source .venv/bin/activate`
