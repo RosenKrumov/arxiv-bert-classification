@@ -1,6 +1,6 @@
 # arxiv-bert-classification
-This repository contains a trainable BERT model experiment on Kaggle Arxiv Dataset [https://www.kaggle.com/datasets/Cornell-University/arxiv]
-It also has a Django REST Framework app that runs a server and provides an API for predicting on an already trained model
+This repository contains a trainable BERT model experiment on Kaggle Arxiv Dataset [https://www.kaggle.com/datasets/Cornell-University/arxiv] <br>
+It also has a Django REST Framework app that runs a server and provides an API for predicting on an already trained model <br><br>
 
 I recommend going through the EDA analysis part first -> [https://github.com/RosenKrumov/arxiv-bert-classification/blob/main/arxiv_bert/analysis/eda-dataset-creation.ipynb]
 
@@ -12,7 +12,7 @@ Averaged Macro Recall: 0.60 <br>
 Averaged F1 Score: 0.61
 
 ## API reference:
-GET /api/prediction - to go to the predictions page
+GET /api/prediction - to go to the predictions page <br>
 POST /api/prediction - to play with the model
 
 ## Run tests
